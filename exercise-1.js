@@ -71,11 +71,12 @@
         // Write a function that converts a string to an array. It should return an array.  
 
         //your code...
-        function strToArr() {
-            return [];
+        function strToArr(string) {
+            array = string.split();
+            console.log(array);
         }
 
-
+        strToArr("jorge is coding");
 
 
 
@@ -86,10 +87,15 @@
 
         //your code...
         function reversePhone(number) {
-            
+            newNumber = number
+            .toString()
+            .split('')
+            .reverse()
+            .join('');
+            return newNumber;
         }
 
-
+        console.log(reversePhone(1234567890));
 
 
 
@@ -97,7 +103,18 @@
         // Write a function that returns a car object using some given info about your car. Required inputs are the make, model, year, and color.
 
         //your code...
+        var myCar = {
+            make: 'Ford',
+            model: 'Mustang',
+            year: 1967,
+            color: 'blue'
+        };
 
+        function carDetail () {
+            console.log(myCar);
+        }
+
+        carDetail();
 
 
 
@@ -109,9 +126,19 @@
         //example : [10,23,3,4] => function() => {10 : 'even', 23 : 'odd', 3 : 'odd', 4 : 'even'}
 
         //your code...
+        function evenOrOdd(list) {
+            newList = [];
+            for (let i = 0; i <= list.length-1; i++){
+                if (list[i] % 2 === 0){
+                    newList.push(list[i] + ": even");
+                } else {
+                    newList.push(list[i] + ": odd");
+                }
+            }
+            console.log(newList);
+        }
 
-
-
+        evenOrOdd([10,23,3,4,8,13]);
 
 
 
@@ -121,16 +148,39 @@
         // Write a "for" loop that console.log()'s the first value in the  array, and every 3rd number, i.e. 0, 3, 6, 9: the zeroth, third, sixth, and ninth values.
 
         //your code...
-
-
+        function printEveryThird(numbers) {
+            for (let i = 0; i <= 10; i+=3) {
+                console.log(numbers[i]);
+            }
+        }
+        printEveryThird(numbers);
 
         /************************************************************************************/
         const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {program : 'TEKcamp'} ];
         //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
+        function accessSchool() {
+            var school = foodArray.slice(-1)[0];
+            console.log(school);
+        }
+
+        accessSchool();
 
         const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
         // Using both the foodArray and the adjectiveArray, write "for" loop that console.log()'s a sentence for each corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  i.e. "Potatoes are salty", "Lemon is sour".
+        function foodAdjectives(arr1, arr2) {
+            var program1 = foodArray.slice(-1)[0];
+            var lastAdjective = adjectiveArray.slice(-1)[0];
+            for (let i = 0; i <= arr1.length-2; i++) {
+                if ((arr1[i]).includes('s')){
+                    console.log(`${arr1[i]} are ${arr2[i]}`);
+                }
+                else{
+                    console.log(`${arr1[i]} is ${arr2[i]}`);
+                }
+            } console.log(`${program1.program} is ${lastAdjective}`);
+        }
 
+        foodAdjectives(foodArray, adjectiveArray);
 
         /************************************************************* */
         // Refactor the for() loop to be a while loop.
@@ -139,10 +189,15 @@
         for(let i=0; i<10; i++) {
             // console.log(" the value of i in the loop is : " + i);
         }
-
-
         //your code...
-
+        function forToWhile() {
+            var i = 0;
+            while(i<10) {
+                console.log(" the value of i in the loop is : " + i);
+                i++;
+            }
+        }
+        forToWhile();
 
 
 
@@ -151,15 +206,25 @@
         //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
         //your code...
+        const mathProblems = function(){
+            let sum = (30+2)*20; 
+            let divide = sum/(Math.pow(10,2));
+            return divide;
 
+        }
+        console.log(mathProblems());
+        
 
         /************************************************************* */
         //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation values : 
 
         // ex : 3 is truthy, because it is a number, and numbers are type coerced as 'true' when performing logical (boolean) operations.
 
-        // 20
-        // 0
+        function trueOrFalse(value) {
+            return value ? "truthy" : "falsy";
+        }
+        console.log(trueOrFalse(20));
+        console.log(trueOrFalse(0));
         // "zero";
         // const zero = 20;
         // null
