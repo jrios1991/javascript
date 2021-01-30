@@ -223,59 +223,80 @@
         function trueOrFalse(value) {
             return value ? "truthy" : "falsy";
         }
-        console.log(trueOrFalse(20));
-        console.log(trueOrFalse(0));
-        // "zero";
-        // const zero = 20;
-        // null
-        // "0"
-        // !""
-        // {}
-        // () => {console.log("hello TEKcamp!");
-        // 125
-        // undefined
-        // ""
+        console.log(trueOrFalse(20) + ' because it is an integer greater than 0');
+        console.log(trueOrFalse(0) + ' because it is an intger equal to 0');
+        console.log(trueOrFalse("zero") + ' because it a string');
+        const zero = 20
+        console.log(trueOrFalse(zero) + ' because the constant is equal to an integer greater than 0');
+        console.log(trueOrFalse(null) + ' because it is a null value');
+        console.log(trueOrFalse("0") + ' because it is not an empty string');
+        console.log(trueOrFalse(!"") + ' because it is opposite of an empty string');
+        console.log(trueOrFalse({}) + ' because it is an empty object');
+        console.log(trueOrFalse(() => {console.log("hello TEKcamp!")}) + " because it is a function");
+        console.log(trueOrFalse(125) + ' because it is an integer greater than zero');
+        console.log(trueOrFalse(undefined) + ' because it is undefined');
+        console.log(trueOrFalse("") + ' because it is an empty string');
 
 
 
 
         /************************************************************* */
         // Refactor the following code using a switch statement:
+        
+        // if(day === "monday") {
+        //     console.log("we got a long week ahead of us...");
+        // } else if(day === "tuesday") {
+        //     console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+        // } else if (day === "wednesday") {
+        //     console.log("We are smack dab in the middle of the week");
+        // } else if (day === "thursday") {
+        //     console.log("Thursday night... the mood is right");
+        // } else if (day === "friday") {
+        //     console.log("TGIF.  Friday truly is the best day of the week!")
+        // } else {
+        //     console.log("It's a weekend!")
+        // }
+        // console.log(day);
 
-        const day = "friday";
-
-        if(day === "monday") {
-            console.log("we got a long week ahead of us...");
-        } else if(day === "tuesday") {
-            console.log("tuesday's are still beterr than mondays, but LONG way to go still");
-        } else if (day === "wednesday") {
-            console.log("We are smack dab in the middle of the week");
-        } else if (day === "thursday") {
-            console.log("Thursday night... the mood is right");
-        } else if (day === "friday") {
-            console.log("TGIF.  Friday truly is the best day of the week!")
-        } else {
-            console.log("It's a weekend!")
+        let day = 'thursday';
+        switch (day) {
+            case 'monday':
+                console.log("we got a long week ahead of us...");
+                break;
+            case 'tuesday':
+                console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+                break;
+            case 'wedenesday':
+                console.log("We are smack dab in the middle of the week");
+                break;
+            case 'thursday':
+                console.log("Thursday night... the mood is right");
+                break;
+            case 'friday':
+                console.log("TGIF.  Friday truly is the best day of the week!")
+                break;
+            default:
+                console.log("It's a weekend!")
         }
-
-
 
         /************************************************************* */
         // Refactor the following statements to use ternary expressions:
 
         const age = 10;
-        if (age > 21) console.log("adult"); else {
-            console.log("minor");
-        }
+        // if (age > 21) console.log("adult"); else {
+        //     console.log("minor");
+        // }
+        console.log(age>21 ? 'adult' : 'minor');
 
-        if (age > 13 && age < 19) console.log('teen'); else {
-            console.log("not a teenager");
-        };
+        // if (age > 13 && age < 19) console.log('teen'); else {
+        //     console.log("not a teenager");
+        // };
+        console.log(age > 13 && age < 19 ? 'teen' : 'not a teen');
 
-        if (age > 65) console.log("retired"); else {
-            console.log("still working...");
-        }
-
+        // if (age > 65) console.log("retired"); else {
+        //     console.log("still working...");
+        // }
+        console.log(age > 65 ? 'retired' : 'still working...');
 
         /************************************************************* */
         //Create an object literal representing yourself.  Set it equal to a variable that appropriately describes the object.  Include the following properties:
@@ -294,9 +315,24 @@
         */
 
         //your code...
-
-
-
+        const jorgeRios = {
+            name:'Jorge Rios',
+            age:29,
+            gender:'m',
+            healthy:'sure',
+            hobbies:'making music',
+            profession:'student',
+            education:'some college',
+            learn: function() {
+                console.log(`${this.name} is learning JavaScript`);
+            },
+            pastTime: function() {
+                console.log(`One of my hobbies is ${this.hobbies} `);
+            }
+        }
+        console.log(jorgeRios);
+        jorgeRios.learn();
+        jorgeRios.pastTime();
         /************************************************************* */
 
         {
@@ -314,6 +350,7 @@
                 console.log("welcome to the 21st century");
             }
             
+            // let year = year > 2000 && year < 2100 ? console.log('welcome to the 21st century') : console.log(year);
             // 2.
             for(let i=0; i<nums.length; i++) {
                 sum += nums[i];
@@ -338,8 +375,15 @@
         // Square every number in the array.  Store the squares in a new array.
 
         //your code...
-
-
+        function squareAll(nums){
+            squaredArray = [];
+            for(let i = 0; i < nums.length; i++){
+                squared = Math.pow(nums[i],2);
+                squaredArray.push(squared);
+            }
+            return squaredArray;
+        }
+        console.log(squareAll(nums));
 
 
 
@@ -347,9 +391,15 @@
         //Remove all numbers that are less than 5.  Store the results in a new array.
 
         //your code...
-
-
-
+        function removeAll(array){
+            newArray = [];
+            for(let i = 0; i < array.length; i++){
+                if (array[i] >= 5) {
+                    newArray.push(array[i]);
+                }
+            } return newArray;
+        }
+        console.log(removeAll(fivePlus));
 
 
 
