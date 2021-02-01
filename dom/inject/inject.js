@@ -20,12 +20,12 @@ h2.appendChild(link);
 link.appendChild(node2);
 link.href = 'https://codepen.io/ayunas-the-scripter/pen/WNQgpqB';
 //hr paragraph and ol
-hr = document.createElement('hr');
-paragraph1 = document.createElement('p');
-italics = document.createElement('i');
-node3 = document.createTextNode("I love ");
-node4 = document.createTextNode(" for the following reasons:");
-node5 = document.createTextNode('HTML');
+let hr = document.createElement('hr');
+let paragraph1 = document.createElement('p');
+let italics = document.createElement('i');
+let node3 = document.createTextNode("I love ");
+let node4 = document.createTextNode(" for the following reasons:");
+let node5 = document.createTextNode('HTML');
 //paragraph 
 injectDocument.appendChild(hr);
 hr.appendChild(paragraph1);
@@ -35,13 +35,13 @@ italics.appendChild(node5);
 italics.style.fontStyle = 'italic';
 paragraph1.appendChild(node4);
 //ol
-orderedList = document.createElement('ol');
-listItem1 = document.createElement('li');
-listItem2 = document.createElement('li');
-listItem3 = document.createElement('li');
-list1 = document.createTextNode('I learned it quickly.');
-list2 = document.createTextNode('I can make web pages using code');
-list3 = document.createTextNode('It’s fun.');
+let orderedList = document.createElement('ol');
+let listItem1 = document.createElement('li');
+let listItem2 = document.createElement('li');
+let listItem3 = document.createElement('li');
+let list1 = document.createTextNode('I learned it quickly.');
+let list2 = document.createTextNode('I can make web pages using code');
+let list3 = document.createTextNode('It’s fun.');
 hr.appendChild(orderedList);
 orderedList.appendChild(listItem1);
 orderedList.appendChild(listItem2);
@@ -52,19 +52,19 @@ listItem3.appendChild(list3);
 //footer
 //pargraph2
 let paragraph2 = document.createElement('p');
-link2 = document.createElement('a');
+let link2 = document.createElement('a');
 link2.href = 'mailto:ayunas@teksystems.com';
-paragraph2Node = document.createTextNode('My instructor’s email address is: ');
-link2Node = document.createTextNode('ayunas@teksystems.com')
+let paragraph2Node = document.createTextNode('My instructor’s email address is: ');
+let link2Node = document.createTextNode('ayunas@teksystems.com')
 injectDocument.appendChild(paragraph2);
 paragraph2.appendChild(paragraph2Node);
 paragraph2.appendChild(link2);
 link2.appendChild(link2Node);
 //h1
-lastheader = document.createElement('h1');
-outertext = document.createElement('p');
-lastheaderNode = document.createTextNode('Have a great day!');
-outertextNode = document.createTextNode(" I really look forward to learning how to code!  Have a great day. -[Team 'Git'er Done'] -->");
+let lastheader = document.createElement('h1');
+let outertext = document.createElement('p');
+let lastheaderNode = document.createTextNode('Have a great day!');
+let outertextNode = document.createTextNode(" I really look forward to learning how to code!  Have a great day. -[Team 'Git'er Done'] -->");
 injectDocument.appendChild(lastheader);
 lastheader.appendChild(lastheaderNode);
 injectDocument.appendChild(outertext);
