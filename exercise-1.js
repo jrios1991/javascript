@@ -414,8 +414,13 @@
         const showNums = [12,22,33,44,55,66,77,88,99,101];
         //Print out the value of each number divided by 2.  There is no need to store the output in an array.
 
+        function printNumns(arr){
+            for(let i = 0; i < arr.length; i++){
+                console.log(arr[i]/2);
+            }
+        };
 
-
+        printNumns(showNums);
         /************************************************************* */
         /* Chess pieces have point values associated with them.  
 
@@ -429,27 +434,38 @@
         ['android'] => chessCalc() => null
 
         */
+        
 
-        function chessCalc(pieces) {
-            //your code here
-        }
+        // function chessCalc(pieces) {
+        // };
 
-
+        // chessCalc();
 
 
         /************************************************************* */
 
         const ones = [1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111];
         //reverse the array, without modifying / `mutating` the ones array.
-
-
+        function reverseArrayFunction(array){
+            let reverseArray = [];
+            for(let i = array.length-1; i >= 0; i--){
+                reverseArray.push(array[i]);
+            } return reverseArray
+        }
+        
+        console.log(reverseArrayFunction(ones));
 
         /************************************************************* */
         //create a function called performer(cb) that takes in a callback function and runs that callback function.  The function should return the output of the callback function.
 
         function performer(cb) {
-            //code goes here
+            let name = this.name;
+            return name;
+        };
+        function callback(name){
+            console.log(`Hi my name is ${name}`);
         }
+        performer(callback('Jorge'));
 
 
         /************************************************************* */
@@ -521,7 +537,8 @@
         // Find all devs older than 24
 
         //your code here...
-
+        let greaterThan24 = devs.filter(({age}) => age >= 24);
+        console.log(greaterThan24);
 
 
         /************************** */  
