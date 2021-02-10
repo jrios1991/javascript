@@ -4,8 +4,23 @@
         // Write a JavaScript function that iterates the integers from 1 to 100. For multiples of 3 print "TEK" instead of the number and for multiples of 5, print "camp." For numbers that are multiples of both 3 and 5, print "TEKcamp."
 
         //your code...
-        function tekCamp() {}
-        // tekCamp();
+        function tekCamp() {
+            for (let i = 1; i <= 100; i++) {
+                if (i % 3 === 0 && i % 5 === 0){
+                    console.log("TEKcamp");
+                }
+                else if(i % 3 === 0) {
+                    console.log("TEK");
+                }
+                else if(i % 5 === 0){
+                    console.log("camp");
+                }
+                else {
+                    console.log(i);
+                }
+            }
+        }
+        tekCamp();
 
 
 
@@ -13,10 +28,11 @@
         //Write a function that converts the current temperature from Fahrenheit to Celsius. 
 
         //your code...
-        function farenheitCelsius() {
-
+        function farenheitCelsius(farenheit) {
+            let celsius = 5/9 * (farenheit-32);
+            return Math.round(celsius);
         }
-
+        console.log(farenheitCelsius(72));
 
 
 
@@ -24,11 +40,11 @@
         //Write a function that converts the Celsius temperature back to Fahrenheit. 
 
         //your code...
-        function celsiusFarenheit() {
-
+        function celsiusFarenheit(celsius) {
+            let farenheit = ((9/5)*celsius) + 32;
+            return Math.round(farenheit);
         }
-
-
+        console.log(celsiusFarenheit(15));
 
 
 
@@ -37,10 +53,15 @@
 
         //your code...
         function canVote(age) {
-            return false;
+            if (age >= 18){
+                return true
+            } 
+            else {
+                return false;
+            }
         }
 
-
+        console.log(canVote(17));
 
 
 
@@ -50,11 +71,12 @@
         // Write a function that converts a string to an array. It should return an array.  
 
         //your code...
-        function strToArr() {
-            return [];
+        function strToArr(string) {
+            array = string.split();
+            console.log(array);
         }
 
-
+        strToArr("jorge is coding");
 
 
 
@@ -65,10 +87,15 @@
 
         //your code...
         function reversePhone(number) {
-            
+            newNumber = number
+            .toString()
+            .split('')
+            .reverse()
+            .join('');
+            return newNumber;
         }
 
-
+        console.log(reversePhone(1234567890));
 
 
 
@@ -76,7 +103,18 @@
         // Write a function that returns a car object using some given info about your car. Required inputs are the make, model, year, and color.
 
         //your code...
+        var myCar = {
+            make: 'Ford',
+            model: 'Mustang',
+            year: 1967,
+            color: 'blue'
+        };
 
+        function carDetail () {
+            console.log(myCar);
+        }
+
+        carDetail();
 
 
 
@@ -88,9 +126,19 @@
         //example : [10,23,3,4] => function() => {10 : 'even', 23 : 'odd', 3 : 'odd', 4 : 'even'}
 
         //your code...
+        function evenOrOdd(list) {
+            newList = [];
+            for (let i = 0; i <= list.length-1; i++){
+                if (list[i] % 2 === 0){
+                    newList.push(list[i] + ": even");
+                } else {
+                    newList.push(list[i] + ": odd");
+                }
+            }
+            console.log(newList);
+        }
 
-
-
+        evenOrOdd([10,23,3,4,8,13]);
 
 
 
@@ -100,16 +148,39 @@
         // Write a "for" loop that console.log()'s the first value in the  array, and every 3rd number, i.e. 0, 3, 6, 9: the zeroth, third, sixth, and ninth values.
 
         //your code...
-
-
+        function printEveryThird(numbers) {
+            for (let i = 0; i <= 10; i+=3) {
+                console.log(numbers[i]);
+            }
+        }
+        printEveryThird(numbers);
 
         /************************************************************************************/
         const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {program : 'TEKcamp'} ];
         //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
+        function accessSchool() {
+            var school = foodArray.slice(-1)[0];
+            console.log(school);
+        }
+
+        accessSchool();
 
         const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
         // Using both the foodArray and the adjectiveArray, write "for" loop that console.log()'s a sentence for each corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  i.e. "Potatoes are salty", "Lemon is sour".
+        function foodAdjectives(arr1, arr2) {
+            var program1 = foodArray.slice(-1)[0];
+            var lastAdjective = adjectiveArray.slice(-1)[0];
+            for (let i = 0; i <= arr1.length-2; i++) {
+                if ((arr1[i]).includes('s')){
+                    console.log(`${arr1[i]} are ${arr2[i]}`);
+                }
+                else{
+                    console.log(`${arr1[i]} is ${arr2[i]}`);
+                }
+            } console.log(`${program1.program} is ${lastAdjective}`);
+        }
 
+        foodAdjectives(foodArray, adjectiveArray);
 
         /************************************************************* */
         // Refactor the for() loop to be a while loop.
@@ -118,10 +189,15 @@
         for(let i=0; i<10; i++) {
             // console.log(" the value of i in the loop is : " + i);
         }
-
-
         //your code...
-
+        function forToWhile() {
+            var i = 0;
+            while(i<10) {
+                console.log(" the value of i in the loop is : " + i);
+                i++;
+            }
+        }
+        forToWhile();
 
 
 
@@ -130,66 +206,97 @@
         //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
         //your code...
+        const mathProblems = function(){
+            let sum = (30+2)*20; 
+            let divide = sum/(Math.pow(10,2));
+            return divide;
 
+        }
+        console.log(mathProblems());
+        
 
         /************************************************************* */
         //Determine whether the following values are "truthy" or "falsy".  console.log() the value, whether the value is 'truthy' or 'falsy', along with your reasoning why using String interpolation values : 
 
         // ex : 3 is truthy, because it is a number, and numbers are type coerced as 'true' when performing logical (boolean) operations.
 
-        // 20
-        // 0
-        // "zero";
-        // const zero = 20;
-        // null
-        // "0"
-        // !""
-        // {}
-        // () => {console.log("hello TEKcamp!");
-        // 125
-        // undefined
-        // ""
+        function trueOrFalse(value) {
+            return value ? "truthy" : "falsy";
+        }
+        console.log(trueOrFalse(20) + ' because it is an integer greater than 0');
+        console.log(trueOrFalse(0) + ' because it is an intger equal to 0');
+        console.log(trueOrFalse("zero") + ' because it a string');
+        const zero = 20
+        console.log(trueOrFalse(zero) + ' because the constant is equal to an integer greater than 0');
+        console.log(trueOrFalse(null) + ' because it is a null value');
+        console.log(trueOrFalse("0") + ' because it is not an empty string');
+        console.log(trueOrFalse(!"") + ' because it is opposite of an empty string');
+        console.log(trueOrFalse({}) + ' because it is an empty object');
+        console.log(trueOrFalse(() => {console.log("hello TEKcamp!")}) + " because it is a function");
+        console.log(trueOrFalse(125) + ' because it is an integer greater than zero');
+        console.log(trueOrFalse(undefined) + ' because it is undefined');
+        console.log(trueOrFalse("") + ' because it is an empty string');
 
 
 
 
         /************************************************************* */
         // Refactor the following code using a switch statement:
+        
+        // if(day === "monday") {
+        //     console.log("we got a long week ahead of us...");
+        // } else if(day === "tuesday") {
+        //     console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+        // } else if (day === "wednesday") {
+        //     console.log("We are smack dab in the middle of the week");
+        // } else if (day === "thursday") {
+        //     console.log("Thursday night... the mood is right");
+        // } else if (day === "friday") {
+        //     console.log("TGIF.  Friday truly is the best day of the week!")
+        // } else {
+        //     console.log("It's a weekend!")
+        // }
+        // console.log(day);
 
-        const day = "friday";
-
-        if(day === "monday") {
-            console.log("we got a long week ahead of us...");
-        } else if(day === "tuesday") {
-            console.log("tuesday's are still beterr than mondays, but LONG way to go still");
-        } else if (day === "wednesday") {
-            console.log("We are smack dab in the middle of the week");
-        } else if (day === "thursday") {
-            console.log("Thursday night... the mood is right");
-        } else if (day === "friday") {
-            console.log("TGIF.  Friday truly is the best day of the week!")
-        } else {
-            console.log("It's a weekend!")
+        let day = 'thursday';
+        switch (day) {
+            case 'monday':
+                console.log("we got a long week ahead of us...");
+                break;
+            case 'tuesday':
+                console.log("tuesday's are still beterr than mondays, but LONG way to go still");
+                break;
+            case 'wedenesday':
+                console.log("We are smack dab in the middle of the week");
+                break;
+            case 'thursday':
+                console.log("Thursday night... the mood is right");
+                break;
+            case 'friday':
+                console.log("TGIF.  Friday truly is the best day of the week!")
+                break;
+            default:
+                console.log("It's a weekend!")
         }
-
-
 
         /************************************************************* */
         // Refactor the following statements to use ternary expressions:
 
         const age = 10;
-        if (age > 21) console.log("adult"); else {
-            console.log("minor");
-        }
+        // if (age > 21) console.log("adult"); else {
+        //     console.log("minor");
+        // }
+        console.log(age>21 ? 'adult' : 'minor');
 
-        if (age > 13 && age < 19) console.log('teen'); else {
-            console.log("not a teenager");
-        };
+        // if (age > 13 && age < 19) console.log('teen'); else {
+        //     console.log("not a teenager");
+        // };
+        console.log(age > 13 && age < 19 ? 'teen' : 'not a teen');
 
-        if (age > 65) console.log("retired"); else {
-            console.log("still working...");
-        }
-
+        // if (age > 65) console.log("retired"); else {
+        //     console.log("still working...");
+        // }
+        console.log(age > 65 ? 'retired' : 'still working...');
 
         /************************************************************* */
         //Create an object literal representing yourself.  Set it equal to a variable that appropriately describes the object.  Include the following properties:
@@ -208,9 +315,24 @@
         */
 
         //your code...
-
-
-
+        const jorgeRios = {
+            name:'Jorge Rios',
+            age:29,
+            gender:'m',
+            healthy:'sure',
+            hobbies:'making music',
+            profession:'student',
+            education:'some college',
+            learn: function() {
+                console.log(`${this.name} is learning JavaScript`);
+            },
+            pastTime: function() {
+                console.log(`One of my hobbies is ${this.hobbies} `);
+            }
+        }
+        console.log(jorgeRios);
+        jorgeRios.learn();
+        jorgeRios.pastTime();
         /************************************************************* */
 
         {
@@ -228,6 +350,7 @@
                 console.log("welcome to the 21st century");
             }
             
+            // let year = year > 2000 && year < 2100 ? console.log('welcome to the 21st century') : console.log(year);
             // 2.
             for(let i=0; i<nums.length; i++) {
                 sum += nums[i];
@@ -252,8 +375,15 @@
         // Square every number in the array.  Store the squares in a new array.
 
         //your code...
-
-
+        function squareAll(nums){
+            squaredArray = [];
+            for(let i = 0; i < nums.length; i++){
+                squared = Math.pow(nums[i],2);
+                squaredArray.push(squared);
+            }
+            return squaredArray;
+        }
+        console.log(squareAll(nums));
 
 
 
@@ -261,9 +391,15 @@
         //Remove all numbers that are less than 5.  Store the results in a new array.
 
         //your code...
-
-
-
+        function removeAll(array){
+            newArray = [];
+            for(let i = 0; i < array.length; i++){
+                if (array[i] >= 5) {
+                    newArray.push(array[i]);
+                }
+            } return newArray;
+        }
+        console.log(removeAll(fivePlus));
 
 
 
@@ -278,8 +414,13 @@
         const showNums = [12,22,33,44,55,66,77,88,99,101];
         //Print out the value of each number divided by 2.  There is no need to store the output in an array.
 
+        function printNumns(arr){
+            for(let i = 0; i < arr.length; i++){
+                console.log(arr[i]/2);
+            }
+        };
 
-
+        printNumns(showNums);
         /************************************************************* */
         /* Chess pieces have point values associated with them.  
 
@@ -293,27 +434,38 @@
         ['android'] => chessCalc() => null
 
         */
+        
 
-        function chessCalc(pieces) {
-            //your code here
-        }
+        // function chessCalc(pieces) {
+        // };
 
-
+        // chessCalc();
 
 
         /************************************************************* */
 
         const ones = [1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111];
         //reverse the array, without modifying / `mutating` the ones array.
-
-
+        function reverseArrayFunction(array){
+            let reverseArray = [];
+            for(let i = array.length-1; i >= 0; i--){
+                reverseArray.push(array[i]);
+            } return reverseArray
+        }
+        
+        console.log(reverseArrayFunction(ones));
 
         /************************************************************* */
         //create a function called performer(cb) that takes in a callback function and runs that callback function.  The function should return the output of the callback function.
 
         function performer(cb) {
-            //code goes here
+            let name = this.name;
+            return name;
+        };
+        function callback(name){
+            console.log(`Hi my name is ${name}`);
         }
+        performer(callback('Jorge'));
 
 
         /************************************************************* */
@@ -385,7 +537,8 @@
         // Find all devs older than 24
 
         //your code here...
-
+        let greaterThan24 = devs.filter(({age}) => age >= 24);
+        console.log(greaterThan24);
 
 
         /************************** */  
